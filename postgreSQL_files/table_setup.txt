@@ -33,6 +33,5 @@ CREATE TABLE safety_issues (
 -- For registered cars (registered to users)
 CREATE TABLE reg_cars (
 	reg_car_id INT PRIMARY KEY,
-	car_model INT REFERENCES car_models,
-	car_owner INT REFERENCES reg_users
+	car_model INT REFERENCES car_models
 );
