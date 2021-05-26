@@ -1,13 +1,14 @@
 -- For registered users
 CREATE TABLE reg_users (
 	user_id INT PRIMARY KEY,
-	last_name VARCHAR,
-	first_name VARCHAR,
-	state VARCHAR,
-	email VARCHAR,
-	ntf_method VARCHAR,
+	last_name VARCHAR NOT NULL,
+	first_name VARCHAR NOT NULL,
+	state VARCHAR NOT NULL,
+	email VARCHAR NOT NULL,
+	ntf_method VARCHAR NOT NULL,
 	reg_car_1 INT REFERENCES reg_cars,
-	reg_car_2 INT REFERENCES reg_cars
+	reg_car_2 INT REFERENCES reg_cars,
+	pwd VARCHAR NOT NULL
 );
 
 -- For all car models
@@ -23,7 +24,7 @@ CREATE TABLE safety_issues (
 	issue_id INT PRIMARY KEY,
 	description VARCHAR,
 	date_known INT,
-	ntfs_sent BOOLEAN,
+	ntfs_sent BOOLEAN NOT NULL,
 	aff_car1 INT REFERENCES car_models
 	aff_car2 INT REFERENCES car_models
 	aff_car3 INT REFERENCES car_models
@@ -33,5 +34,5 @@ CREATE TABLE safety_issues (
 -- For registered cars (registered to users)
 CREATE TABLE reg_cars (
 	reg_car_id INT PRIMARY KEY,
-	car_model INT REFERENCES car_models
+	car_model INT REFERENCES car_models NOT NULL
 );
