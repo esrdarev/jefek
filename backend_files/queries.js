@@ -29,7 +29,7 @@ const registerUser = (request, response) => {
     if (error) {
       throw error
     }
-    response.status(201).send(`User registered with ID: ${result.insertId}`)
+    response.status(201).send("\n**User registered**\n\n")
   })
 }
 
