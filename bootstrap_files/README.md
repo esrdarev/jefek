@@ -2,6 +2,8 @@ These files comprise the basis for the future website and were made with Bootstr
 
 To run, simply open the html files with a browser.
 
+![sample](https://github.com/esrdarev/jefek/blob/main/bootstrap_files/sample.png)
+
 Tasks for future sprints:
 - Front and back end communication (JavaScript)
 - Add additional pages for user log in etc
