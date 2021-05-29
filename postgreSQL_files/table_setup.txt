@@ -1,38 +1,37 @@
 -- For registered users
 CREATE TABLE reg_users (
-	user_id INT PRIMARY KEY,
-	last_name VARCHAR NOT NULL,
-	first_name VARCHAR NOT NULL,
-	state VARCHAR NOT NULL,
-	email VARCHAR NOT NULL,
-	ntf_method VARCHAR NOT NULL,
+	user_id SERIAL PRIMARY KEY,
+	last_name VARCHAR(20) NOT NULL,
+	first_name VARCHAR(20) NOT NULL,
+	state VARCHAR(3) NOT NULL,
+	email VARCHAR(20) NOT NULL,
+	ntf_method VARCHAR(10) NOT NULL,
 	reg_car_1 INT REFERENCES reg_cars,
 	reg_car_2 INT REFERENCES reg_cars,
-	pwd VARCHAR NOT NULL
+	pwd VARCHAR(20) NOT NULL
 );
 
 -- For all car models
 CREATE TABLE car_models (
-	car_id INT PRIMARY KEY,
-	car_manuf VARCHAR,
-	car_model VARCHAR,
+	car_id SERIAL PRIMARY KEY,
+	car_manuf VARCHAR(15),
+	car_model VARCHAR(15),
 	car_yr INT
 );
 
 -- For safety issues
 CREATE TABLE safety_issues (
-	issue_id INT PRIMARY KEY,
-	description VARCHAR,
+	issue_id SERIAL PRIMARY KEY,
+	description VARCHAR(100),
 	date_known INT,
 	ntfs_sent BOOLEAN NOT NULL,
-	aff_car1 INT REFERENCES car_models
-	aff_car2 INT REFERENCES car_models
+	aff_car1 INT REFERENCES car_models,
+	aff_car2 INT REFERENCES car_models,
 	aff_car3 INT REFERENCES car_models
-
 );
 
 -- For registered cars (registered to users)
 CREATE TABLE reg_cars (
-	reg_car_id INT PRIMARY KEY,
+	reg_car_id SERIAL PRIMARY KEY,
 	car_model INT REFERENCES car_models NOT NULL
 );
